@@ -44,8 +44,8 @@ void init_thread() {
     lty(register_read_satp());
 
     tree_all();
-    printf("files_count = %d\n", files_count);
-    if(files_count == 36){
+    printf("files_count")
+    if(files_count > 36){
         //    create_process("/yield");
         create_process("/write");
         create_process("/uname");
