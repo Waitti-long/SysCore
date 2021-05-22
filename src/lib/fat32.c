@@ -310,7 +310,7 @@ struct Fat32Entry fat_find_file_entry(const char *file_name, int *find) {
     return fake;
 }
 
-
+size_t files_count = 0;
 /**
  * 从起始地址开始遍历文件树
  * @param addr 起始地址，为fat32表项位置
@@ -333,6 +333,7 @@ void tree(size_t addr, int level) {
         if (file_start.file_attributes == FILE_ATTR_SUB_DIRECTORY)
             putchar('/');
         putchar('\n');
+        files_count++;
         if (file_start.file_attributes == FILE_ATTR_SUB_DIRECTORY
             && strcmp_s(file_start.short_file_name, ".       ", 8) != 0
             && strcmp_s(file_start.short_file_name, "..      ", 8) != 0) {
