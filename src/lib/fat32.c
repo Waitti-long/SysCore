@@ -333,7 +333,11 @@ void tree(size_t addr, int level) {
         if (file_start.file_attributes == FILE_ATTR_SUB_DIRECTORY)
             putchar('/');
         putchar('\n');
-        files_count++;
+        if (file_start.file_attributes != FILE_ATTR_SUB_DIRECTORY
+            && strcmp_s(file_start.short_file_name, ".       ", 8) != 0
+            && strcmp_s(file_start.short_file_name, "..      ", 8) != 0) {
+            files_count++;
+        }
         if (file_start.file_attributes == FILE_ATTR_SUB_DIRECTORY
             && strcmp_s(file_start.short_file_name, ".       ", 8) != 0
             && strcmp_s(file_start.short_file_name, "..      ", 8) != 0) {
