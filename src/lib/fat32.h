@@ -7,6 +7,8 @@ typedef unsigned char uint8_t;
 typedef unsigned short uint16_t;
 typedef unsigned int uint32_t;
 
+extern size_t files_count;
+
 struct Fat32Entry {
     char short_file_name[8];
     uint8_t short_file_extension[3];
